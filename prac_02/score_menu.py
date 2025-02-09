@@ -8,6 +8,7 @@ EXCELLENT = 90
 PASSABLE = 50
 
 def main():
+    """Main function"""
     print(MENU)
     choice = input(">>> ").upper()
     score = 0
@@ -26,6 +27,7 @@ def main():
     print("Thank you.")
 
 def get_valid_score():
+    """Get valid score"""
     score = int(input("Enter score: "))
     while score < LOWEST_SCORE or score > HIGHEST_SCORE:
         print("Invalid score")
@@ -33,6 +35,7 @@ def get_valid_score():
     return score
 
 def get_result(score):
+    """Show result"""
     if score >= EXCELLENT:
         return "Excellent"
     elif score >= PASSABLE:
