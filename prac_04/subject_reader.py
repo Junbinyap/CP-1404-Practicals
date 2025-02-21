@@ -4,6 +4,7 @@ Data file -> lists program
 """
 
 FILENAME = "subject_data"
+
 def main():
     data = load_data()
     display_subject_details(data)
@@ -11,20 +12,19 @@ def main():
 def load_data():
     """Read data from file formatted like: subject,lecturer,number of students."""
     data = []
-    input_file = open(FILENAME)
-
-    for line in input_file:
-        line = line.strip()
-        parts = line.split(',')
-        parts[2] = int(parts[2])
-        data.append(parts)
-    input_file.close()
+    with open(FILENAME) as input_file:
+        for line in input_file:
+            line = line.strip()
+            parts = line.split(',')
+            data.append(parts)  # Add the raw data as it is (keeping number as string)
     return data
 
 def display_subject_details(data):
-    """Display subject details in a readable format."""
-    print(f"{'Subject':<10} {'Lecturer':<20} {'Number of Students'}")
-    print("-" * 50)  # Print a separator line
+    """Display subject details in a readable sentence format."""
     for subject in data:
-        print(f"{subject[0]:<10} {subject[1]:<20} {subject[2]:<15}")
-main()
+        subject_code = subject[0]
+        lecturer = subject[1]
+        # Convert the number of students when displaying
+        num_students = int(subject[2])
+        print(f"{subject_code} is taught by {lecturer} and has {num_students} students.")
+
