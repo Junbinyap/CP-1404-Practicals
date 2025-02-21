@@ -16,7 +16,7 @@ def load_data():
         for line in input_file:
             line = line.strip()
             parts = line.split(',')
-            data.append(parts)  # Add the raw data as it is (keeping number as string)
+            data.append(parts)
     return data
 
 def display_subject_details(data):
@@ -28,3 +28,4 @@ def display_subject_details(data):
         num_students = int(subject[2])
         print(f"{subject_code} is taught by {lecturer} and has {num_students} students.")
 
+main()
