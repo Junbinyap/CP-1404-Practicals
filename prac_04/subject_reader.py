@@ -24,7 +24,6 @@ def display_subject_details(data):
     for subject in data:
         subject_code = subject[0]
         lecturer = subject[1]
-        # Convert the number of students when displaying
         num_students = int(subject[2])
         print(f"{subject_code} is taught by {lecturer} and has {num_students} students.")
 
