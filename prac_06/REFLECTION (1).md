@@ -21,6 +21,6 @@ I need to stop making careless mistakes, such as overlooking small syntax errors
 
 
 ## What is one request you have or change you suggest for this subject and/or your IT degree overall?
-For complicated programming projects, timelines must be more flexible. 
+For complicated programming projects, timelines must be more flexible
 
 
