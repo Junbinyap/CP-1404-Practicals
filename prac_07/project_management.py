@@ -23,6 +23,15 @@ def main():
             display_projects(projects)
         elif choice == "F":
             filter_projects_by_date(projects)
+        elif choice == "A":
+            add_project(projects)
+        elif choice == "U":
+            update_project(projects)
+        elif choice == "Q":
+             save_choice = input(f"Would you like to save to {filename}? (Y/N): ").strip().upper()
+             if save_choice == "Y":
+                 save_projects(filename, projects)
+             print("Thank you for using custom-built project management software.")
     else:
         print("Invalid choice. Try again.")
 
@@ -83,7 +92,29 @@ def filter_projects_by_date(projects):
     except ValueError:
         print("Invalid date format. Please enter the date as DD-MM-YYYY.")
 
+def add_project(projects):
+    """Add a new project."""
+    print("Let's add a new project")
+    name = input("Name: ")
+    start_date = input("Start date (dd/mm/yy): ")
+    priority = input("Priority: ")
+    cost_estimate = input("Cost estimate:$ ")
+    completion_percentage = input("Percent complete: ")
+    projects.append(Project(name, start_date, priority, cost_estimate,completion_percentage ))
 
+def update_project(projects):
+    """Update a project's completion percentage or priority."""
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+    index = int(input("Project choice: "))
+    project = projects[index]
 
-if __name__ == "__main__":
-    main()
+    new_completion = input(f"New Percentage: ")
+    new_priority = input(f"New Priority: ")
+
+    if new_completion:
+        project.completion_percentage = int(new_completion)
+    if new_priority:
+        project.priority = int(new_priority)
+
+main()
