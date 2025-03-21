@@ -5,10 +5,11 @@ from guitar import Guitar
 def main():
     """Read guitars from a CSV file and display them."""
     guitars = load_guitars("guitars.csv")
-    print("\nGuitars loaded from file:")
+
+    guitars.sort()
+    print("\nGuitars sorted by year (oldest to newest):")
     for guitar in guitars:
         print(guitar)
-
 
 def load_guitars(filename):
     """Read guitar data from a CSV file and return a list of Guitar objects."""
